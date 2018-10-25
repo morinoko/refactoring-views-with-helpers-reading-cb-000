@@ -178,3 +178,28 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
   Rendered posts/edit.html.erb within layouts/application (2.1ms)
 Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/1/edit" for 126.2.63.14 at 2018-10-25 22:20:39 +0000
+Cannot render console from 126.2.63.14! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (undefined local variable or method `post' for #<#<Class:0x007f0c6c2d0620>:0x007f0c6c2dc6a0>
+Did you mean?  @post):
+    1: <%= form_for(@post) do |f| %>
+    2:   <label><%= last_updated(post) %></label><br>
+    3:   <label>Post title:</label><br>
+    4:   <%= f.text_field :title %><br>
+    5: 
+  app/views/posts/edit.html.erb:2:in `block in _app_views_posts_edit_html_erb___971641082029706919_69845665659280'
+  app/views/posts/edit.html.erb:1:in `_app_views_posts_edit_html_erb___971641082029706919_69845665659280'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (41.7ms)
